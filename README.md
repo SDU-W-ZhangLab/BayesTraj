@@ -1,1 +1,2 @@
 # BayesTraj
+`install.packages("BayesTraj")`
