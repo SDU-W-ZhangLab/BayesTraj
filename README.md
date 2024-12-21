@@ -31,8 +31,6 @@ devtools::install_github("SDU-W-ZhangLab/BayesTraj")
 To evaluate BayesTraj's ability to infer cellular trajectories, we applied it to time-series scRNA-seq datasets of **mESC and hESC differentiation into endoderm cells**. These datasets included multiple time points with temporal annotations, allowing us to assess the inferred pseudotime. We tested whether BayesTraj, **using small panels of marker genes**, could accurately reconstruct the differentiation trajectory. 
 
 <p align="center">—— <strong>mesc</strong> ——</p>
-
-(1) 筛选基因
 (2) 输入marker基因表达和分支结构+参数介绍
 (3) 输出结果+输出框架结构介绍
 
