@@ -71,4 +71,4 @@ bt <- calculate_branches(bt)
 - **`calculate_branches`**  
   The `calculate_branches` function applies these posterior estimates to finalize the branching structure and update the trajectory object accordingly.
 
-For further usage options see the vignette. A prebuilt vignette can be found [here]().
+For further usage options see the vignette. 
