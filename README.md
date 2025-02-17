@@ -45,12 +45,12 @@ bt <- BayesTraj(iter = 100, n_branch = 2,
                 b2_mu0_t_mu = b2_mu0_t_mu, b2_mu0_t_sd = b2_mu0_t_sd,
                 lower_mu0_s = 0.2, upper_mu0_s = 0.5, lower_mu0_t = 0.05, upper_mu0_t = 0.4,
                 chains = 1)
-bt <- infer_pseudotime(bt)
-bt <- infer_mu0(bt)
-bt <- infer_k(bt)
-bt <- infer_t0(bt)
-bt <- branch_probability(bt)
-bt <- calculate_branches(bt)
+pseudo_time <- infer_pseudotime(bt)
+mu0 <- infer_mu0(bt)
+k <- infer_k(bt)
+t0 <- infer_t0(bt)
+branch_prob <- branch_probability(bt)
+cal_branch <- calculate_branches(bt)
 ```
 
 - **`infer_pseudotime`**  
