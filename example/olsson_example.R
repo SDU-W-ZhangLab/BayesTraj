@@ -1,9 +1,8 @@
 
 library(BayesTraj)
 
-setwd('D:/study/2024/cellfate/paper/stream/Olsson_2016')
 # data <- read.csv('data_Olsson_wishbone.csv',row.names = 1)
-data <- read.csv('data_Olsson.tsv.gz',sep = '\t',row.names = 1)
+data <- read.csv('data/multifurcation/data_Olsson.tsv.gz',sep = '\t',row.names = 1)
 
 gene_names <- rownames(data)
 data_counts <- t(as.matrix(data)) 
@@ -23,7 +22,6 @@ gene_expression_matrix <- t(gene_expression_matrix)
 
 cell_labels <- read.csv('cell_label.tsv.gz',sep = '\t',header = F)$V1
 desired_order <- c('HSCP-1','HSCP-2','Multi-Lin','Meg','Eryth','Gran','Myelocyte','MDP','Mono')
-# 将 cell_labels 设置为有序因子，使得类别按照 desired_order 排序
 annotation <- data.frame(Label = factor(cell_labels, levels = desired_order))
 rownames(annotation) <- colnames(t(data_counts))
 
@@ -34,7 +32,7 @@ annotation <- annotation[sorted_order, , drop = FALSE]
 
 
 unique_labels <- levels(annotation$Label)
-# colors <- rainbow(length(unique_labels))  # 生成 9 种不同的颜色
+# colors <- rainbow(length(unique_labels)) 
 colors <- c('#FEE551','#E4BE00','#E84037','#DB1135','#9B278A','#6081C0','#55B1E4','#00973D','#71BD58')
 names(colors) <- unique_labels
 ann_colors <- list(Label = colors)
@@ -51,8 +49,8 @@ color_palette <- c(colorRampPalette(colors = c(bluecolors[9], bluecolors[7]))(20
 
 library(pheatmap)
 pheatmap(gene_expression_matrix,
-         annotation_col = annotation,       # 列注释
-         annotation_colors = ann_colors,    # 标签颜色
+         annotation_col = annotation,      
+         annotation_colors = ann_colors,   
          color = color_palette,
          scale = "row",
          cluster_rows = TRUE,
@@ -255,6 +253,7 @@ smooth_expr3 <- process_and_smooth_data(expr3,genes,smooth_k = 8)
 
 input_list <- list(smooth_expr1,smooth_expr2,smooth_expr3)
 generate_heatmap(input_list)
+
 
 
 
